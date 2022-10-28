@@ -19,5 +19,7 @@ namespace Joița_Cristina_Lab2.Data
         public DbSet<Joița_Cristina_Lab2.Models.Publisher> Publisher { get; set; }
 
         public DbSet<Joița_Cristina_Lab2.Models.Author> Author { get; set; }
+
+        public DbSet<Joița_Cristina_Lab2.Models.Category> Category { get; set; }
     }
 }
