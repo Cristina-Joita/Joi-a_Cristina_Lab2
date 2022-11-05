@@ -28,6 +28,7 @@ namespace Joița_Cristina_Lab2.Pages.Books
             BookD = new BookData();
             BookD.Books = await _context.Book
             .Include(b => b.Publisher)
+            .Include(b=>b.Author)
             .Include(b => b.BookCategories)
             .ThenInclude(b => b.Category)
             .AsNoTracking()
@@ -42,17 +43,7 @@ namespace Joița_Cristina_Lab2.Pages.Books
             }
         }
 
-            public async Task OnGetAsync()
-        {
-            if (_context.Book != null)
-            {
-                Book = await _context.Book
-                    .Include(b => b.Publisher)
-                    .Include(b => b.Author)
-                    .ToListAsync();
-
-            }
-        }
+         
     }
     //
 }

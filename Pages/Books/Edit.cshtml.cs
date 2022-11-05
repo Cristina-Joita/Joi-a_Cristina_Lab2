@@ -33,6 +33,7 @@ namespace Joița_Cristina_Lab2.Pages.Books
             var book =  await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
             Book = await _context.Book
 .Include(b => b.Publisher)
+.Include(b=>b.Author)
 .Include(b => b.BookCategories).ThenInclude(b => b.Category)
 .AsNoTracking()
 .FirstOrDefaultAsync(m => m.ID == id);
@@ -64,6 +65,7 @@ selectedCategories)
             }
             var bookToUpdate = await _context.Book
             .Include(i => i.Publisher)
+            .Include(i=>i.Author)
             .Include(i => i.BookCategories)
             .ThenInclude(i => i.Category)
             .FirstOrDefaultAsync(s => s.ID == id);
@@ -74,7 +76,7 @@ selectedCategories)
             if (await TryUpdateModelAsync<Book>(
             bookToUpdate,
             "Book",
-            i => i.Title, i => i.Author,
+            i => i.Title, i => i.AuthorID,
             i => i.Price, i => i.PublishingDate, i => i.Publisher))
             {
                 UpdateBookCategories(_context, selectedCategories, bookToUpdate);

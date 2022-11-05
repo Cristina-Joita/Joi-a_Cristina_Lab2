@@ -59,11 +59,8 @@ if (cnt++ % 3 == 0)
 @:</tr><tr>
 }
 @:<td>
-<input type="checkbox"
-name="selectedCategories"
-value="@cat.CategoryID"
-@(Html.Raw(cat.Assigned ?
-"checked=\"checked\"" : "")) />
+<input type="checkbox" name="selectedCategories" value="@cat.CategoryID"
+@(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
 @cat.CategoryID @: @cat.Name
 @:</td>
 }
