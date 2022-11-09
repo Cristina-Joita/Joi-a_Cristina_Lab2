@@ -14,8 +14,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 builder.Services.AddDbContext<LibraryIdentityContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("Joița_Cristina_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Joita_Cristina_Lab2Context' not found.")));
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>options.SignIn.RequireConfirmedAccount = true)
-.AddEntityFrameworkStores<LibraryIdentityContext>();
+
+/*builder.Services.AddDefaultIdentity<IdentityUser>(options =>options.SignIn.RequireConfirmedAccount = true)
+.AddEntityFrameworkStores<LibraryIdentityContext>();*/
 
 var app = builder.Build();
 
