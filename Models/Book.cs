@@ -11,6 +11,9 @@ namespace Joița_Cristina_Lab2.Models
         public int ID { get; set; }
         [Display(Name = "Book Title")]
         public string Title { get; set; }
+
+        [Column(TypeName = "decimal(6, 2)")]
+        [Range(0.01, 500)]
         public int? AuthorID { get; set; }
         public Author? Author { get; set; }
         [Column(TypeName = "decimal(6, 2)")]
